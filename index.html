@@ -195,6 +195,7 @@
   .do-list{list-style:none; margin:14px 0 0; padding:0; display:grid; gap:11px;}
   .do-list li{display:flex; gap:11px; align-items:baseline; font-size:.92rem; line-height:1.45;}
   .do-list b{color:var(--accent-strong);}
+  .do-list a{color:var(--accent-strong); text-decoration:underline;}
   .d-note{
     margin-top:14px; background:var(--hazard-soft); border:1px solid var(--line); border-radius:3px;
     padding:11px 13px; font-size:.86rem; color:var(--ink);
@@ -372,56 +373,56 @@
 (function(){
   var PLATFORMS = [
     {key:'drone', name:'Drone / aerial vehicle operation', code:'SOP 02.04 · 8.2 · 9.2',
-      read:['02.04 Drone Safety (SOP)'],
+      read:[{t:'02.04 Drone Safety (SOP)', url:'https://unlimited.ethz.ch/spaces/mrl/pages/522819538/Test+page+2?preview=/522819538/522819548/02.04%20Drone%20Safety.pdf'}],
       item:'Drone operation',
       training:'in-person, hands-on session with that drone’s current platform lead (Leonard Diederich for the Elios 3, Leonard Freissmuth for Tetli, Girardi Luca or Gabriel Maquignaz for Spear) or another qualified instructor — required before flying solo.',
       notes:['Outdoor/field flights also bring in FOCA/BAZL rules: dLIS operator registration + marking on the airframe, current insurance confirmation carried, remote pilot qualification (A1/A3 exam). See 02.04 §7 — none of this applies to flights kept entirely indoors.',
         'Appendix 8.2 (workflow) and 9.2 (risk assessment) have the full detail behind the SOP, if you ever want it — not required reading to get started.']},
     {key:'humanoid', name:'Humanoid robot operation', code:'SOP 02.05 · 8.3 · 9.3',
-      read:['02.05 Humanoid Safety (SOP)'],
+      read:[{t:'02.05 Humanoid Safety (SOP)', url:'https://unlimited.ethz.ch/spaces/mrl/pages/522819538/Test+page+2?preview=/522819538/522819549/02.05%20Humanoid%20Safety.pdf'}],
       item:'Humanoid operation',
       training:'in-person, hands-on session with the current platform lead (Micha Bosshart, Alex Brandes, Joshua Näf, or Alexander Hansson) or another qualified instructor — required before operating solo.',
       notes:['Normal operation stays inside RobotX Hall, already covered by 8.7 — taking it off-site (a demo, a different building) is a "new site" case, see the Something New tab.',
         'Appendix 8.3 (workflow) and 9.3 (risk assessment) have the full detail if you want it — not required reading to get started.']},
     {key:'stretch3', name:'Stretch 3 mobile manipulator', code:'SOP 02.10 · 8.10 · 9.10',
-      read:['02.10 Stretch 3 Safety (SOP)'],
+      read:[{t:'02.10 Stretch 3 Safety (SOP)', url:'https://unlimited.ethz.ch/spaces/mrl/pages/522819538/Test+page+2?preview=/522819538/522819551/02.10%20Stretch%203%20Safety.pdf'}],
       item:'Stretch 3 operation',
       training:'in-person, hands-on session with the team lead (Matteo Iovino) or another qualified instructor.',
       notes:['Appendix 8.10 (workflow) and 9.10 (risk assessment) have the full detail if you want it — not required reading to get started.']},
     {key:'resin', name:'Resin (SLA) 3D printing', code:'SOP 02.07 · 8.4 · 9.4',
-      read:['02.07 Resin Printer Chemical Safety and Workflow (SOP)'],
+      read:[{t:'02.07 Resin Printer Chemical Safety and Workflow (SOP)', url:'https://unlimited.ethz.ch/spaces/mrl/pages/522819538/Test+page+2?preview=/522819538/522819550/02.07%20Resin%20Printer%20Chemical%20Safety%20and%20Workflow.pdf'}],
       item:'Resin 3D printing',
       training:'in-person, hands-on session with Gabriel Maquignaz (resin/wash-station training, maintenance, SLA stock).',
       notes:['Appendix 8.4 (workflow) and 9.4 (risk assessment) have the full detail if you want it — not required reading to get started.']},
     {key:'battery', name:'Rechargeable battery handling', code:'SOP 02.03 · 8.5 · 9.5',
-      read:['02.03 Rechargeable Batteries (SOP)'],
+      read:[{t:'02.03 Rechargeable Batteries (SOP)', url:'https://unlimited.ethz.ch/spaces/mrl/pages/522819538/Test+page+2?preview=/522819538/522819547/02.03%20Rechargeable%20Batteries.pdf'}],
       item:'Rechargeable battery handling',
       training:null, signNote:'a reading sign-off — no separate hands-on session is logged for this one',
       notes:['Appendix 8.5 (workflow) and 9.5 (risk assessment) have the full detail if you want it — not required reading to get started.']},
     {key:'electronics', name:'Electronics / PCB & platform assembly', code:'SOP 02.02 · 8.8 · 9.8',
-      read:['02.02 Electrical Safety (SOP)'],
+      read:[{t:'02.02 Electrical Safety (SOP)', url:'https://unlimited.ethz.ch/spaces/mrl/pages/522819538/Test+page+2?preview=/522819538/522819546/02.02%20Electrical%20Safety.pdf'}],
       item:'Electronics / PCB building and repair',
       training:null, signNote:'a reading sign-off, covering the system-level rules for assembling and powering up custom PCBs, wiring harnesses, and full platforms',
       notes:['Appendix 8.8 (workflow) and 9.8 (risk assessment) have the full detail if you want it — not required reading to get started.']},
     {key:'workshop', name:'Room LEE J 218 (workshop) access', code:'3.1 · 8.9 · 9.9',
-      read:['Appendix 3.1 — Workshop rules'],
+      read:[{t:'Appendix 3.1 — Workshop rules', url:'https://unlimited.ethz.ch/spaces/mrl/pages/522819538/Test+page+2?preview=/522819538/522819554/Appendix%203.1%20-%20Workshop%20rules.pdf'}],
       item:'Workshop access',
       training:null, notes:['Also read whichever topic SOP actually applies to what you’re doing there — 02.02 for electronics/assembly, 02.07 for resin printing (see those cards above). Part 1 item 3 (general lab rules) is mandatory for everyone regardless.',
         'Appendix 8.9/9.9 have the full detail if you want it — not required reading to get started.']},
     {key:'robotx', name:'RobotX Hall access', code:'8.7 · 9.7',
-      read:['Appendix 8.7 — RobotX Hall (workflow description)'],
+      read:[{t:'Appendix 8.7 — RobotX Hall (workflow description)', url:'https://unlimited.ethz.ch/spaces/mrl/pages/522819538/Test+page+2?preview=/522819538/522819553/8.7%20RobotX%20Hall.pdf'}],
       item:'RobotX Hall access',
       training:null,
       extraSteps:[{v:'Complete', t:'the RobotX Hall access course on Moodle (moodle-app2.let.ethz.ch) — separate from the Proof Card sign-off'}],
       notes:['RobotX Hall has no dedicated Appendix 2 SOP of its own — 8.7 is the substantive document, which is why it’s required reading here.',
         'Appendix 9.7 (risk assessment) is extra background, not required by Appendix 1.2.']},
     {key:'leoc6', name:'LEO C6 test space access', code:'8.6 · 9.6',
-      read:['Appendix 8.6 — LEO C6 Test Space (workflow description, motion-capture room rules)'],
+      read:[{t:'Appendix 8.6 — LEO C6 Test Space (workflow description, motion-capture room rules)', url:'https://unlimited.ethz.ch/spaces/mrl/pages/522819538/Test+page+2?preview=/522819538/522819552/8.6%20LEO%20C6%20Test%20Space.pdf'}],
       item:'LEO C6 access',
       training:null, notes:['Same reasoning as RobotX Hall — no dedicated SOP, so 8.6 is the required document. Girardi Luca is responsible for LEO C6 and its equipment — contact him with questions.',
         'Appendix 9.6 (risk assessment) is extra background, not required by Appendix 1.2.']},
     {key:'field', name:'Field work (outdoor testing)', code:'Appendix 3.2',
-      read:['Appendix 3.2 — Field work rules'],
+      read:[{t:'Appendix 3.2 — Field work rules', url:'https://unlimited.ethz.ch/spaces/mrl/pages/522819538/Test+page+2?preview=/522819538/522819555/Appendix%203.2%20-%20Field%20work%20rules.pdf'}],
       item:'Field work',
       training:null, notes:['Every trip: site permission first, minimum two people on site, bring the field deployment backpack (02.08) — kept in LEE J 207 — complete the platform’s pre-use checklist. Drones additionally follow FOCA/BAZL rules throughout.',
         'Risk assessment is whatever platform you’re taking into the field — review its own 9.x for the outdoor context, on top of the rules here.']}
@@ -514,7 +515,12 @@
   function renderDetail(p){
     detail.hidden = false;
     var steps = [];
-    (p.read || []).forEach(function(r){ steps.push({v:'Read', t:r}); });
+    (p.read || []).forEach(function(r){
+      var text = (typeof r === 'string') ? r : r.t;
+      var url = (typeof r === 'object' && r.url) ? r.url : null;
+      var display = url ? '<a href="'+url+'" target="_blank" rel="noopener">'+text+'</a>' : text;
+      steps.push({v:'Read', t:display});
+    });
     (p.extraSteps || []).forEach(function(e){ steps.push(e); });
     if(p.training) steps.push({v:'Train', t:p.training});
     var signText = 'the “'+p.item+'” row on your Proof Card (Appendix 1.2)' +
