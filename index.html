@@ -485,9 +485,9 @@
       q0:['pinch'], q1:'no', q2:'yes',
       body:['MRL already has a demo procedure with barriers (8.3), so it feels routine. But a school gym is neither RobotX Hall nor an outdoor site, so Appendix 3.2 (field work) doesn’t cover it either. Q2 is yes: it needs its own site document — and since 9.3’s ratings assume RobotX Hall, the risk assessment itself needs reviewing (bystanders, especially children; unfamiliar floor; no built-in barriers).'],
       needs:['New Appendix 8.x site document for the gym','Review Appendix 9.3 for the new context (bystanders/children, floor, no barriers)','New Appendix 1.2 access item if entry needs clearance']},
-    {id:'quadruped', tag:'stop', title:'Borrowed quadruped, one-off joint demo', blurb:'Not MRL’s robot, only for a day — still counts.',
+    {id:'quadruped', tag:'stop', title:'Quadruped borrowed from RSL, one-off joint demo', blurb:'Not MRL’s robot — on loan from RSL for a day, staying in our test space inside RobotX Hall — still counts.',
       q0:['pinch'], q1:'yes', q2:'no',
-      body:['Feels exempt — MRL doesn’t own it, and it’s only for a day — but 8.7’s hall rule requires a risk assessment before first use of any new robot type, ownership aside, and “legged quadruped” isn’t one of MRL’s four documented classes. Q1 is yes: at minimum a new risk assessment before MRL operates it, even once.'],
+      body:['Feels exempt — it’s RSL’s robot, not MRL’s, only borrowed for a day, and it never leaves our test space inside RobotX Hall — but 8.7’s hall rule requires a risk assessment before first use of any new robot type, ownership aside, and “legged quadruped” isn’t one of MRL’s four documented classes. Q1 is yes: at minimum a new risk assessment before MRL operates it, even once.'],
       needs:['New Appendix 9.x risk assessment before first use, minimum','Full new-class paperwork if use continues beyond the one-off']},
     {id:'publicroad', tag:'stop', title:'Humanoid walked along a public road', blurb:'Existing platform, but not the kind of “outdoors” 3.2 was written for.',
       q0:['pinch'], q1:'no', q2:'yes',
@@ -578,7 +578,6 @@
     }
 
     detail.innerHTML =
-      '<span class="d-code mono">'+p.code+'</span>'+
       '<h3>'+p.name+'</h3>'+
       '<ol class="do-list">'+listHtml+'</ol>'+
       notesHtml;
